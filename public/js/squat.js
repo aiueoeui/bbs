@@ -16,13 +16,13 @@ let horizontal_screen = false;
 
 const confidence_threshold = 0.6; //指定数値以上の精度の場合
 
-let target_angle_l1 = "左膝 "; //部位名
+let target_angle_l1 = "ひだりひざ "; //部位名
 let leftflexiontext_01 = 0;
 
 let target_angle_l2 = "左肘 ";
 let leftflexiontext_02 = 0;
 
-let target_angle_r1 = "右膝 ";
+let target_angle_r1 = "みぎひざ ";
 let rightflexiontext_01 = 0;
 
 let target_angle_r2 = "右肘 ";
@@ -97,7 +97,7 @@ function switchByWidth() {
         console.log("スマホ横向き");
         PHONE = true;
     } else if (window.matchMedia('(min-width:768px)').matches) {
-        createCanvas(1280, 900);//PC処理
+        createCanvas(1280, 800);//PC処理
         console.log("PC");
         PC = true;
     }
@@ -151,9 +151,9 @@ function draw() {
     strokeWeight(2);
     stroke(51);
     translate(width, 0);
-    textAlign(LEFT, BOTTOM);
+    textAlign(CENTER, BOTTOM);
     scale(-1, 1);
-    textSize(40);
+    textSize(50);
 
     DebugText();
 
@@ -171,29 +171,29 @@ function draw() {
     //     text("体制チェック" + HipAbovewirst, width, 1);
     // }
 
-    if (flag_1 == true) {
-        fill(0, 255, 0);
-        text("膝角度>170 " + flag_1, width, 1);
-    } else {
-        fill(200, 0, 0);
-        text("膝角度>170 " + flag_1, width, 1);
-    }
+    // if (flag_1 == true) {
+    //     fill(0, 255, 0);
+    //     text("ひざかくど " + flag_1, width, 1);
+    // } else {
+    //     fill(200, 0, 0);
+    //     text("膝角度>170 " + flag_1, width, 1);
+    // }
 
-    if (timerflag == true) {
-        fill(0, 255, 0);
-        text("膝角度<95 " + timerflag, width, 30);
-    } else {
-        fill(200, 0, 0);
-        text("膝角度<95 " + timerflag, width, 30);
-    }
+    // if (timerflag == true) {
+    //     fill(0, 255, 0);
+    //     text("膝角度<95 " + timerflag, width, 30);
+    // } else {
+    //     fill(200, 0, 0);
+    //     text("膝角度<95 " + timerflag, width, 30);
+    // }
 
-    if (keepangle == true) {
-        fill(0, 255, 0);
-        text("角度維持 " + keepangle, width, 60);
-    } else {
-        fill(200, 0, 0);
-        text("角度維持 " + keepangle, width, 60);
-    }
+    // if (keepangle == true) {
+    //     fill(0, 255, 0);
+    //     text("角度維持 " + keepangle, width, 60);
+    // } else {
+    //     fill(200, 0, 0);
+    //     text("角度維持 " + keepangle, width, 60);
+    // }
 
     fill(255);
     textSize(40);
@@ -230,14 +230,15 @@ function DebugText() {
             txtscore = score.toFixed(2);//scoreを小数点2まで切り捨て
         }
     }
-    text("score " + txtscore, 1, (height - 1));
+    //制度表示
+    // text("score " + txtscore, 1, (height - 1));
 
     if (conditions_count == 0) {
         fill(0, 200, 0);
-        text("count " + conditions_count, 220, (height - 1));
+        text("あと " + conditions_count + "かい", (height - 1));
     } else {
         fill(255);
-        text("count " + conditions_count, 220, (height - 1));
+        text("あと " + conditions_count+ "かい", (width/2), (height - 1));
     }
 
 }
@@ -381,7 +382,7 @@ function left_angle_1() {
         } else {
             // leftflexion = 0;
         }
-        leftflexiontext_01 = Math.floor(leftflexion);//小数点切り捨て   
+        leftflexiontext_01 = Math.floor(leftflexion);//小数点切り捨て
     }
 }
 
@@ -416,7 +417,7 @@ function left_angle_2() {
         } else {
             // leftflexion = 0;
         }
-        leftflexiontext_02 = Math.floor(leftflexion);//小数点切り捨て   
+        leftflexiontext_02 = Math.floor(leftflexion);//小数点切り捨て
     }
 }
 
@@ -451,7 +452,7 @@ function right_angle_1() {
         } else {
             // rightflexion = 0;
         }
-        rightflexiontext_01 = Math.floor(rightflexion);//小数点切り捨て   
+        rightflexiontext_01 = Math.floor(rightflexion);//小数点切り捨て
     }
 }
 
@@ -486,7 +487,7 @@ function right_angle_2() {
         } else {
             // rightflexion = 0;
         }
-        rightflexiontext_02 = Math.floor(rightflexion);//小数点切り捨て   
+        rightflexiontext_02 = Math.floor(rightflexion);//小数点切り捨て
     }
 }
 

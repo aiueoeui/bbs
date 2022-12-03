@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
-        // $this->call(ExerciseSeeder::class);
+        $this->call(ExerciseSeeder::class);
         $this->call(PostSeeder::class);
     }
 }
@@ -79,11 +79,18 @@ class ExerciseSeeder extends Seeder
     {
     \DB::table('exercises')->insert([
         [
-            'exrcise_name' => 'squat',
+            'exrcise_name' => 'スクワット',
         ],
         [
-            'exrcise_name' => 'stepup',
+            'exrcise_name' => 'その場足踏み',
         ],
+        [
+            'exrcise_name' => '力こぶうんどう',
+        ],
+        [
+            'exrcise_name' => '腕立て伏せ',
+        ],
+
     ]);
 
     }

@@ -27,6 +27,9 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::post('/squat', [PostController::class, 'send'])->name('squat');
+Route::view('/form', 'test');
+
 //ユーザ一覧
 
 

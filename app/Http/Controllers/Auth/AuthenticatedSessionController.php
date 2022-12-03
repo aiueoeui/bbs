@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         // 管理者だったら、ログイン後に/adminにリダイレクト
         if (Auth::User()->user_division == true) {
-            return redirect('/admin/dashboard');
+            return redirect('/dashboard');
         }
 
         return redirect()->intended(RouteServiceProvider::HOME);

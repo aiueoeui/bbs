@@ -164,4 +164,14 @@ class PostController extends Controller
     {
         //
     }
+
+    // app/Http/Controllers/TestController.php
+
+    public function send(Request $request)
+    {
+        $count = $request->input('count');
+        echo "回数は、" . $count . "です。";
+    }
+
+
 }

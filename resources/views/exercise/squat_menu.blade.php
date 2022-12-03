@@ -45,11 +45,17 @@
 
             <div class="flex ml-4 mt-4 pt-12">
             <div>
+                <a href="{{route('menu')}}">
               <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('もどる') }}</button>
             </div>
+                </a>
 
             <div class="text-right ml-auto mr-4">
+                <form method="POST" action="{{ url('/squat') }}">
+                @csrf
+                <input type="text" name="count" placeholder="回数を入力してください">
                 <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('はじめる') }}</button>
+                </form>
             </div>
 
 

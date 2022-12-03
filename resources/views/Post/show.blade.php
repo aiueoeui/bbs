@@ -99,7 +99,13 @@
         </table>
 
             <div class="px-8 py-12">
-            <h3 class="border-b text-3xl font-bold" >画像一覧 :</h3>
+            <h3 class="border-b text-3xl font-bold">
+            @if (Auth::User()->user_division == true)
+            画像一覧 :
+            @else
+            うんどうのようす :
+            @endif
+            </h3>
             @if ($images->count())
             @foreach ($images as $image)
             <img class="mt-6 rounded-lg shadow-xl" src="{{ asset('storage/sample/' .$image->image) }}" width="25%" height="25%">

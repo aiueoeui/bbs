@@ -2,6 +2,18 @@
 <html lang="jp">
 
 <head>
+    <style type="text/css">
+        canvas {
+            display: block;
+            margin: auto;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <!-- Require the peer dependencies of pose-detection. -->
@@ -17,7 +29,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8" />
-    
+
 </head>
 
 <body>
