@@ -51,11 +51,31 @@
                 </a>
 
             <div class="text-right ml-auto mr-4">
-                <form method="POST" action="{{ url('/squat') }}">
-                @csrf
-                <input type="text" name="count" placeholder="回数を入力してください">
-                <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('はじめる') }}</button>
-                </form>
+
+<form method="POST" action="{{ url('/squat') }}">
+@csrf
+<div class="flex">
+    <div class="flex items-center mr-4">
+        <input id="inline-radio" type="radio" value="5" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="inline-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">5かい</label>
+    </div>
+    <div class="flex items-center mr-4">
+        <input id="inline-2-radio" type="radio" value="10" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="inline-2-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">10かい</label>
+    </div>
+    <div class="flex items-center mr-4">
+        <input checked id="inline-checked-radio" type="radio" value="15" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="inline-checked-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">15かい</label>
+    </div>
+    <input type="hidden" name="exercise_name" value="スクワット" >
+    
+    <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('はじめる') }}</button>
+
+    </div>
+</div>
+</form>
+
+
             </div>
 
 

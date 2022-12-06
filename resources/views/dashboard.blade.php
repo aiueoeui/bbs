@@ -18,7 +18,7 @@
 
                 <div class="flex justify-center mt-4">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        <a class="px-4" href="">
+                        <a class="px-4" href="{{route('post.adminindex')}}">
                             記録一覧
                         </a>
                     </button>
@@ -26,7 +26,9 @@
 
                 <div class="flex justify-center mt-3">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="{{route('user.index')}}">
                         児童情報確認
+                        </a>
                     </button>
                 </div>
 

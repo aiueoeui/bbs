@@ -108,7 +108,7 @@
             </h3>
             @if ($images->count())
             @foreach ($images as $image)
-            <img class="mt-6 rounded-lg shadow-xl" src="{{ asset('storage/sample/' .$image->image) }}" width="25%" height="25%">
+            <img class="mt-6 rounded-lg shadow-xl" src="{{ asset('storage/images/' .$image->image) }}" width="25%" height="25%">
             @endforeach
             @else
             画像がアップロードされていません。

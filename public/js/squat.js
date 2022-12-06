@@ -28,7 +28,7 @@ let rightflexiontext_01 = 0;
 let target_angle_r2 = "右肘 ";
 let rightflexiontext_02 = 0;
 
-let conditions_count = 5;
+// let conditions_count = 5;
 
 let conditions_angle_1 = 95;
 let conditions_angle_2 = 170;
@@ -571,9 +571,4 @@ setInterval(function () {
     }
 }, 1000);
 
-//3秒後画面遷移
-setInterval(function () {
-    if (conditions_count == 0) {
-        location = '/post/create';
-    }
-}, 3000);
+

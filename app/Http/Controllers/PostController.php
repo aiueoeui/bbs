@@ -43,8 +43,8 @@ class PostController extends Controller
      */
     public function option()
     {
-        $exercise_name = 'スクワット';
-        $count = 5;
+        // $exercise_name = 'スクワット';
+        // $count = 5;
 
         return view('post.option',
         ['count' => $count,
@@ -52,10 +52,10 @@ class PostController extends Controller
         //viewsのpostファイルのcreate.blade.phpを表示させる
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $exercise_name = 'スクワット';
-        $count = 5;
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
 
         return view('post.create',
         ['count' => $count,
@@ -79,21 +79,20 @@ class PostController extends Controller
         $post->save();
 
 
-        // if(request('image')){
+        if(request('image')){
         //ディレクトリ名
         $dir = 'sample';
 
         //sampleディレクトリに画像を保存
-        $files =  $request->file('image');
+        $file =  $request->file('image')->store('public/images/');
 
-        dd($files);
+        // dd($files);
 
-        foreach($files as $file){
-        //ファイル情報保存
+        //ファイル情報保存(1枚のみ)
         $image = new Image();
         // $image->image = $file->getClientOriginalName();
         $image->image = basename($file);
-        $file->store('public/image');
+        // $file->store('public/image');
 
         $image->user_id=auth()->user()->id;
         $image->post_id= $post->id;
@@ -101,11 +100,23 @@ class PostController extends Controller
         $image->save();
         }
 
+        // foreach($files as $file){
+        // //ファイル情報保存
+        // $image = new Image();
+        // // $image->image = $file->getClientOriginalName();
+        // $image->image = basename($file);
+        // $file->store('public/image');
+
+        // $image->user_id=auth()->user()->id;
+        // $image->post_id= $post->id;
+
+        // $image->save();
         // }
 
+        // }
 
-        return redirect()->route('post.index') //元の画面を表示させる return back();と同じ処理
-;    }
+        return redirect()->route('post.index');  //元の画面を表示させる return back();と同じ処理
+  }
 
     /**
      * Display the specified resource.
@@ -169,8 +180,11 @@ class PostController extends Controller
 
     public function send(Request $request)
     {
+        $exercise_name = $request->input('exercise_name');
         $count = $request->input('count');
-        echo "回数は、" . $count . "です。";
+        echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('squat', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
     }
 
 

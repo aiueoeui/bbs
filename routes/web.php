@@ -35,6 +35,7 @@ Route::view('/form', 'test');
 
 //記録一覧
 Route::resource('post', PostController::class);
+Route::post('post/create', [PostController::class,'create'])->name('post.create');
 
 // Route::get('post', [PostController::class,'index'])->name('post.index');
 // Route::get('option', [PostController::class,'option'])->name('post.option');
