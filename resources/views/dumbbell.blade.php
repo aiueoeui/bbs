@@ -31,7 +31,8 @@
 <body>
 
     <script>
-        let conditions_count = @json($count);
+        let Rightconditions_count =  @json($count);
+        let Leftconditions_count =  @json($count);
     </script>
 
     <a id="downloadLink"  download="myImage.png"></a>
@@ -56,7 +57,7 @@
   }, 5000);
     </script> --}}
 
-    <script src="{{ asset('js/squat.js') }}"></script>
+    <script src="{{ asset('js/dumbbellv2.js') }}"></script>
 
     <form method="POST" action="{{ route('post.create') }}">
     @csrf

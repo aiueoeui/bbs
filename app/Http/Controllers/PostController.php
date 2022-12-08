@@ -20,7 +20,7 @@ class PostController extends Controller
         $posts =Post::where('user_id', \Auth::user()->id)->orderBy('created_at','desc')->get();
         // $posts=Post::orderBy('exercise_date','desc')->get();
         $user=auth()->user();
-        return view('post.index',compact('posts','user'));
+        return view('Post.index',compact('posts','user'));
     }
 
     public function adminindex()
@@ -33,7 +33,7 @@ class PostController extends Controller
         })->paginate(15);
 
         $user=auth()->user();
-        return view('post.adminindex',compact('posts','user'));
+        return view('Post.adminindex',compact('posts','user'));
     }
 
     /**
@@ -57,7 +57,7 @@ class PostController extends Controller
         $exercise_name = $request->input('exercise_name');
         $count = $request->input('count');
 
-        return view('post.create',
+        return view('Post.create',
         ['count' => $count,
          'exercise_name' => $exercise_name]);
         //viewsのpostファイルのcreate.blade.phpを表示させる
@@ -86,7 +86,7 @@ class PostController extends Controller
         //sampleディレクトリに画像を保存
         $file =  $request->file('image')->store('public/images/');
 
-        // dd($files);
+        // dd($file);
 
         //ファイル情報保存(1枚のみ)
         $image = new Image();
@@ -102,18 +102,17 @@ class PostController extends Controller
 
         // foreach($files as $file){
         // //ファイル情報保存
-        // $image = new Image();
-        // // $image->image = $file->getClientOriginalName();
-        // $image->image = basename($file);
-        // $file->store('public/image');
+        // $file = new Image();
+        // // // $image->image = $file->getClientOriginalName();
+        // // $image->image = basename($file);
+        // $path = $request->$file->store('public/images');
 
         // $image->user_id=auth()->user()->id;
         // $image->post_id= $post->id;
 
         // $image->save();
-        // }
-
-        // }
+    //     }
+    // }
 
         return redirect()->route('post.index');  //元の画面を表示させる return back();と同じ処理
   }
@@ -133,7 +132,7 @@ class PostController extends Controller
 
         //  $images = Image::find($id);
 
-        return view('post.show', compact('post'),['post' => $post,'comments' => $comments, 'images' => $images,]);
+        return view('Post.show', compact('post'),['post' => $post,'comments' => $comments, 'images' => $images,]);
     }
 
     /**
@@ -182,10 +181,36 @@ class PostController extends Controller
     {
         $exercise_name = $request->input('exercise_name');
         $count = $request->input('count');
-        echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
 
         return view('squat', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
     }
 
+    public function stepupsend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('step_up', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
+
+    public function dumbbellsend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('dumbbell', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
+
+    public function push_upsend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('push_up', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
 
 }

@@ -16,13 +16,13 @@ let horizontal_screen = false;
 
 const confidence_threshold = 0.6; //指定数値以上の精度の場合
 
-let target_angle_l1 = "左膝 "; //部位名
+let target_angle_l1 = "ひだりひざ "; //部位名
 let leftflexiontext_01 = 0;
 
 let target_angle_l2 = "左肘 ";
 let leftflexiontext_02 = 0;
 
-let target_angle_r1 = "右膝 ";
+let target_angle_r1 = "みぎひざ ";
 let rightflexiontext_01 = 0;
 
 let target_angle_r2 = "右肘 ";
@@ -38,11 +38,9 @@ let flag_1 = false;
 let flag_2 = false;
 let keepangle = false;
 let timerflag = false;
-let anglestatus ="";
-
+let anglestatus = "";
 
 let KEEP_POINT = 0;
-let BADANGLESTATUS = 0;//kitayama
 
 
 async function init() {
@@ -153,9 +151,9 @@ function draw() {
     strokeWeight(2);
     stroke(51);
     translate(width, 0);
-    textAlign(LEFT, BOTTOM);
+    textAlign(CENTER, BOTTOM);
     scale(-1, 1);
-    textSize(40);
+    textSize(50);
 
     DebugText();
 
@@ -173,29 +171,29 @@ function draw() {
     //     text("体制チェック" + HipAbovewirst, width, 1);
     // }
 
-    if (flag_1 == true) {
-        fill(0, 255, 0);
-        text("膝角度>170 " + flag_1, width, 1);
-    } else {
-        fill(200, 0, 0);
-        text("膝角度>170 " + flag_1, width, 1);
-    }
+    // if (flag_1 == true) {
+    //     fill(0, 255, 0);
+    //     text("ひざかくど " + flag_1, width, 1);
+    // } else {
+    //     fill(200, 0, 0);
+    //     text("膝角度>170 " + flag_1, width, 1);
+    // }
 
-    if (timerflag == true) {
-        fill(0, 255, 0);
-        text("膝角度<95 " + timerflag, width, 30);
-    } else {
-        fill(200, 0, 0);
-        text("膝角度<95 " + timerflag, width, 30);
-    }
+    // if (timerflag == true) {
+    //     fill(0, 255, 0);
+    //     text("膝角度<95 " + timerflag, width, 30);
+    // } else {
+    //     fill(200, 0, 0);
+    //     text("膝角度<95 " + timerflag, width, 30);
+    // }
 
-    if (keepangle == true) {
-        fill(0, 255, 0);
-        text("角度維持 " + keepangle, width, 60);
-    } else {
-        fill(200, 0, 0);
-        text("角度維持 " + keepangle, width, 60);
-    }
+    // if (keepangle == true) {
+    //     fill(0, 255, 0);
+    //     text("角度維持 " + keepangle, width, 60);
+    // } else {
+    //     fill(200, 0, 0);
+    //     text("角度維持 " + keepangle, width, 60);
+    // }
 
     fill(255);
     textSize(40);
@@ -232,14 +230,15 @@ function DebugText() {
             txtscore = score.toFixed(2);//scoreを小数点2まで切り捨て
         }
     }
-    text("score " + txtscore, 1, (height - 1));
+    //制度表示
+    // text("score " + txtscore, 1, (height - 1));
 
     if (conditions_count == 0) {
         fill(0, 200, 0);
-        text("count " + conditions_count, 220, (height - 1));
+        text("あと " + conditions_count + "かい", (height - 1));
     } else {
         fill(255);
-        text("count " + conditions_count, 220, (height - 1));
+        text("あと " + conditions_count+ "かい", (width/2), (height - 1));
     }
 
 }
@@ -271,31 +270,12 @@ function anglereslt_2() {
     }
 }
 
-var uttr = new SpeechSynthesisUtterance();//小林行追加
-
-function cancel(){//小林行追加
-    speechSynthesis.cancel();
-    var uttr = new SpeechSynthesisUtterance();
-}
-
-function countnumber(){//小林行追加
-    uttr.text = ("あと"+conditions_count+"回");
-    speechSynthesis.speak(uttr);
-}
-
-function anglekeeptext(){
+function anglekeeptext() {
     //角度が一定なら"キープ"テキスト表示
-    if(flag_1 == true && keepangle == false && timerflag == true){
+    if (flag_1 == true && keepangle == false && timerflag == true) {
         text("キープして！", width / 2, height / 2);
-        uttr.text = "キープ";//小林行追加
-        speechSynthesis.speak(uttr);//小林行追加
-    }else if(flag_1 == true && keepangle == true){
+    } else if (flag_1 == true && keepangle == true) {
         text("OK!", width / 2, height / 2);
-        uttr.text = "おっけー";//小林行追加
-        speechSynthesis.speak(uttr);//小林行追加
-
-        setTimeout(countnumber,1500)//小林行追加
-        setTimeout(cancel,4500);//小林行追加
     }
 }
 
@@ -520,38 +500,32 @@ function conditions() {
         //     HipAbovewirst = false;
         // }
 
-    // if (HipAbovewirst == true) {//膝角度チェック
-        if(flag_1 == false){
+        // if (HipAbovewirst == true) {//膝角度チェック
+        if (flag_1 == false) {
             if ((rightflexiontext_01 > 170)) {
                 flag_1 = true;
             }
         }
 
-        if(flag_1 == true){
+        if (flag_1 == true) {
             if ((rightflexiontext_01 < 95 && rightflexiontext_01 > 85)) {
                 anglestatus = ""
                 timerflag = true;
             }
 
-            if((rightflexiontext_01 < 84)){
+            if ((rightflexiontext_01 < 84)) {
                 //角度が深いときの指摘
-                anglestatus ="もう少し浅く"
-                BADANGLESTATUS += 1;
-                uttr.text = "もっと浅く";//小林行追加
-                speechSynthesis.speak(uttr);//小林行追加
-            } else if ((rightflexiontext_01 > 96 && rightflexiontext_01 < 120)){
+                anglestatus = "もう少し浅く"
+            } else if ((rightflexiontext_01 > 96 && rightflexiontext_01 < 120)) {
                 //角度が浅いときの指摘
                 anglestatus = "もう少し深く";
-                BADANGLESTATUS += 1;
-                uttr.text = "もっと深く";//小林行追加
-                speechSynthesis.speak(uttr);//小林行追加
             }
 
             //角度が違えばリセット
             if ((rightflexiontext_01 > 96)) {
                 timerflag = false;
                 KEEP_POINT = 0;
-            } else if ((rightflexiontext_01 < 84)){
+            } else if ((rightflexiontext_01 < 84)) {
                 timerflag = false;
                 KEEP_POINT = 0;
             }
@@ -559,38 +533,13 @@ function conditions() {
             if (KEEP_POINT > 3) { //状態維持時間が3カウント以上の場合にカウント許可
                 keepangle = true;
                 KEEP_POINT = 0;
-                // canvas 要素を取得
-                var canvas = document.getElementById('defaultCanvas0');
-
-                // canvas 要素から画像データを取得
-                var data = canvas.toDataURL();
-
-                // a 要素を取得
-                var downloadLink = document.getElementById('downloadLink');
-
-                // a 要素の href 属性に画像データを設定
-                downloadLink.href = data;
-
-                // a 要素をクリックする (画像のダウンロードを開始する)
-                downloadLink.click();
             }
 
 
-            if (keepangle == true){
-                if((rightflexiontext_01 > 170)) {
-                    if (conditions_count > 0){
+            if (keepangle == true) {
+                if ((rightflexiontext_01 > 170)) {
+                    if (conditions_count > 0) {
                         conditions_count -= 1;
-
-                        //conditions関数のカウントマイナスのif文に追加するやつ
-                        setTimeout(function () {
-                            if (conditions_count == 0) {
-                                // a 要素を取得
-                                var exercise_data = document.getElementById('exercise_data');
-
-                                // a 要素をクリックする (画像のダウンロードを開始する)
-                                exercise_data.click();
-                            }
-                        }, 3000);
                     }
                     flag_1 = false; //リセット
                     timerflag = false; //リセット
@@ -612,13 +561,13 @@ function conditions() {
         //     }
         // }
     }
-// }
+    // }
 }
 
 //体勢3秒キープでカウント
 setInterval(function () {
     if (timerflag == true) {
-        KEEP_POINT +=1;
+        KEEP_POINT += 1;
     }
 }, 1000);
 

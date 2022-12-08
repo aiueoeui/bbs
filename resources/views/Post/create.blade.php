@@ -34,7 +34,7 @@
             <div class="w-full flex flex-col">
               <label for="image" class="font-semibold leading-none mt-4">画像</label>
               <div>
-              <input id="image" type="file" name="image" accept=".png, .jpg, .jpeg, .pdf, .doc" multiple>
+              <input id="image" type="file" name="image[]" accept=".png, .jpg, .jpeg, .pdf, .doc" multiple>
              </div>
             </div>
 

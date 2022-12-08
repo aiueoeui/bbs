@@ -56,7 +56,7 @@
   }, 5000);
     </script> --}}
 
-    <script src="{{ asset('js/squat.js') }}"></script>
+    <script src="{{ asset('js/push_up.js') }}"></script>
 
     <form method="POST" action="{{ route('post.create') }}">
     @csrf

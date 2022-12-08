@@ -32,12 +32,11 @@
 
             <a class="pr-1" href="{{ route('exercise.squat_menu')}}"><img src="images/sukuwatto.PNG" alt="スクワット"height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/stepup.html"><img src="images/1-2ashihumi.PNG" alt="その場足踏み" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.step_up_menu')}}"><img src="images/3-6ashihumi.PNG" alt="その場足踏み" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/dumbbell.html"><img src="images/1-2chikara.PNG" alt="ちからこぶ運動" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.dumbbell_menu')}}"><img src="images/3-6chikara.PNG" alt="ちからこぶ運動" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/pushup.html"><img src="images/1-2udetate.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
-
+            <a class="pr-1" href="{{ route('exercise.push_up_menu')}}"><img src="images/1-2udetate.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
 
         </div>
         </div>
@@ -45,11 +44,11 @@
 
         <div class="flex justify-center mt-2">
         <div class="flex flex-row">
-            <a class="pr-1" href="stretch_training/karada_yoko.html"><img src="images/karadanoyoko.PNG" alt="からだのよこ" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.karadanoyoko_menu')}}"><img src="images/karadanoyoko.PNG" alt="からだのよこ" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/pushup.html"><img src="images/kataashi.PNG" alt="かたあしあげ" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.kataashi_menu')}}"><img src="images/kataashi.PNG" alt="かたあしあげ" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/pushup.html"><img src="images/kubi.PNG" alt="くび" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.kubi_menu')}}"><img src="images/kubi.PNG" alt="くび" height="120px" width="220px"></a>
         </div>
 
         </div>
@@ -59,11 +58,11 @@
 
             <a class="pr-1" href="{{ route('exercise.squat_menu')}}"><img src="images/sukuwatto.PNG" alt="スクワット"height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/stepup.html"><img src="images/3-6ashihumi.PNG" alt="その場足踏み" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.step_up_menu')}}"><img src="images/3-6ashihumi.PNG" alt="その場足踏み" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/dumbbell.html"><img src="images/3-6chikara.PNG" alt="ちからこぶ運動" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.dumbbell_menu')}}"><img src="images/3-6chikara.PNG" alt="ちからこぶ運動" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/pushup.html"><img src="images/1-2udetate.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.push_up_menu')}}"><img src="images/1-2udetate.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
 
 
         </div>
@@ -72,11 +71,11 @@
 
         <div class="flex justify-center mt-2">
         <div class="flex flex-row">
-            <a class="pr-1" href="stretch_training/karada_yoko.html"><img src="images/karadanoyoko.PNG" alt="からだのよこ" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.karadanoyoko_menu')}}"><img src="images/karadanoyoko.PNG" alt="からだのよこ" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/pushup.html"><img src="images/kataashi.PNG" alt="かたあしあげ" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.kataashi_menu')}}"><img src="images/kataashi.PNG" alt="かたあしあげ" height="120px" width="220px"></a>
 
-            <a class="pr-1" href="count_training/pushup.html"><img src="images/kubi.PNG" alt="くび" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.kubi_menu')}}"><img src="images/kubi.PNG" alt="くび" height="120px" width="220px"></a>
 
         </div>
         </div>
