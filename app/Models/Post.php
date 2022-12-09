@@ -13,6 +13,7 @@ class Post extends Model
         'name',
         'exercise_name',
         'count',
+        'badcount',
     ];
 
     public function user(){

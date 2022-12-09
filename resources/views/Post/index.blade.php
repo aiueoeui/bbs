@@ -41,6 +41,13 @@
                 </th>
                 <th scope="col" class="py-3 px-6">
                     @if ((Auth::User()->grade == '1')||(Auth::User()->grade == '2'))
+                    {{ __('ちゅういされたかいすう') }}
+                    @else
+                    {{ __('注意が出た回数') }}
+                    @endif
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    @if ((Auth::User()->grade == '1')||(Auth::User()->grade == '2'))
                     {{ __('やった日') }}
                     @else
                     {{ __('実施日') }}
@@ -61,6 +68,7 @@
                 </th>
                 <td class="py-4 px-6">{{$post->exercise_name}}</td>
                 <td class="py-4 px-6">{{$post->count}}</td>
+                <td class="py-4 px-6">{{$post->badcount}}</td> 
                 <td class="py-4 px-6">{{$post->created_at}}</td>
                 <td><a href="{{route('post.show',$post)}}">
                     <button class="bg-blue-500 rounded font-medium px-4 py-2 text-white">

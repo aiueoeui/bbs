@@ -495,6 +495,16 @@ function conditions() {
                     anglestatus = ""
                     if (conditions_count > 0) {
                         conditions_count -= 1;
+                        //conditions関数のカウントマイナスのif文に追加するやつ
+                        setTimeout(function () {
+                            if (conditions_count == 0) {
+                                // a 要素を取得
+                                var exercise_data = document.getElementById('exercise_data');
+
+                                // a 要素をクリックする
+                                exercise_data.click();
+                            }
+                        }, 3000);
                         setTimeout(countnumber,1500)//小林行追加
                         setTimeout(cancel,3500);//小林行追加
                     }
@@ -510,5 +520,6 @@ function conditions() {
                     setTimeout(cancel,2000);//小林行追加
                 }
             }
+
 
     }

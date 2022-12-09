@@ -14,8 +14,14 @@ class UserController extends Controller
         $this->middleware('auth')->except(['index']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $grade = $request->input('grade');
+
+        if(!empty($grade)) {
+            $query->where('grade','LIKE',$grade);
+        }
+
         $users = User::whereUser_division(false)->get();
         return view('user.index', ['users' => $users]);
     }

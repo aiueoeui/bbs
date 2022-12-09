@@ -32,6 +32,10 @@ Route::post('/squat', [PostController::class, 'send'])->name('squat');
 Route::post('/step_up', [PostController::class, 'stepupsend'])->name('step_up');
 Route::post('/dumbbell', [PostController::class, 'dumbbellsend'])->name('dumbbell');
 Route::post('/push_up', [PostController::class, 'push_upsend'])->name('push_up');
+Route::post('/sit_up', [PostController::class, 'sit_upsend'])->name('sit_up');
+Route::post('/karadanoyoko', [PostController::class, 'karadanoyokosend'])->name('karadanoyoko');
+Route::post('/kataashi', [PostController::class, 'kataashisend'])->name('kataashi');
+Route::post('/kubi', [PostController::class, 'kubisend'])->name('kubi');
 
 //記録一覧
 Route::resource('post', PostController::class);
@@ -63,6 +67,9 @@ Route::get('/dumbbell_menu', function () {
 Route::get('/push_up_menu', function () {
     return view('exercise.push_up_menu');
 })->middleware(['auth', 'verified'])->name('exercise.push_up_menu');
+Route::get('/sit_up_menu', function () {
+    return view('exercise.sit_up_menu');
+})->middleware(['auth', 'verified'])->name('exercise.sit_up_menu');
 Route::get('/karadanoyoko_menu', function () {
     return view('exercise.karadanoyoko_menu');
 })->middleware(['auth', 'verified'])->name('exercise.karadanoyoko_menu');
@@ -86,15 +93,18 @@ Route::get('/dumbbell', function () {
 Route::get('/push_up', function () {
     return view('push_up');
 })->middleware(['auth', 'verified'])->name('push_up');
-Route::get('/', function () {
-    return view('');
-})->middleware(['auth', 'verified'])->name('');
-Route::get('/', function () {
-    return view('');
-})->middleware(['auth', 'verified'])->name('');
-Route::get('/', function () {
-    return view('');
-})->middleware(['auth', 'verified'])->name('');
+Route::get('/sit_up', function () {
+    return view('sit_up');
+})->middleware(['auth', 'verified'])->name('sit_up');
+Route::get('/karadanoyoko', function () {
+    return view('karadanoyoko');
+})->middleware(['auth', 'verified'])->name('karadanoyoko');
+Route::get('/kataashi', function () {
+    return view('kataashi');
+})->middleware(['auth', 'verified'])->name('kataashi');
+Route::get('/kubi', function () {
+    return view('kubi');
+})->middleware(['auth', 'verified'])->name('kubi');
 
 //画像
 // Route::get('/images',[ImageController::class,'index'])->name('images.index');

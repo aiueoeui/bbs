@@ -18,7 +18,7 @@
             </div>
 
             <div class="flex ml-4 pt-4 pb-4  border-t border-b justify-center">
-            <img class="mr-2" src="{{ asset('images/step_up1.PNG') }}" alt="その場足踏み"height="120px" width="220px">
+            <img class="mr-2" src="{{ asset('images/step_up1.png') }}" alt="その場足踏み"height="120px" width="220px">
             <img src="{{ asset('images/step_up2.PNG') }}" alt="その場足踏み"height="120px" width="220px">
 
             <div class="flex flex-col">
@@ -47,8 +47,8 @@
 @csrf
 <div class="flex">
     <div class="flex items-center mr-4">
-        <input id="inline-radio" type="radio" value="5" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="inline-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">5かい</label>
+        <input id="inline-radio" type="radio" value="0" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="inline-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">0かい</label>
     </div>
     <div class="flex items-center mr-4">
         <input id="inline-2-radio" type="radio" value="10" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">

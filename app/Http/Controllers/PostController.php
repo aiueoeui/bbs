@@ -48,6 +48,7 @@ class PostController extends Controller
 
         return view('post.option',
         ['count' => $count,
+        'badcount' => $badcount,
          'exercise_name' => $exercise_name]);
         //viewsのpostファイルのcreate.blade.phpを表示させる
     }
@@ -56,9 +57,12 @@ class PostController extends Controller
     {
         $exercise_name = $request->input('exercise_name');
         $count = $request->input('count');
+        $badcount = $request->input('badcount');
+
 
         return view('Post.create',
         ['count' => $count,
+        'badcount' => $badcount,
          'exercise_name' => $exercise_name]);
         //viewsのpostファイルのcreate.blade.phpを表示させる
     }
@@ -75,6 +79,7 @@ class PostController extends Controller
         $post->name=auth()->user()->name;
         $post->exercise_name=$request->exercise_name;
         $post->count=$request->count;
+        $post->badcount=$request->badcount;
         $post->user_id=auth()->user()->id;
         $post->save();
 
@@ -181,7 +186,7 @@ class PostController extends Controller
     {
         $exercise_name = $request->input('exercise_name');
         $count = $request->input('count');
-        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+        echo "回数は、" . $count ."運動名は".$exercise_name."です。";
 
         return view('squat', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
     }
@@ -211,6 +216,42 @@ class PostController extends Controller
         // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
 
         return view('push_up', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
+
+    public function sit_upsend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('sit_up', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
+
+    public function karadanoyokosend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('karadanoyoko', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
+
+    public function kataashisend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('kataashi', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
+    }
+
+    public function kubisend(Request $request)
+    {
+        $exercise_name = $request->input('exercise_name');
+        $count = $request->input('count');
+        // echo "回数は、" . $count ."運動名は".$exercise_name."です。";
+
+        return view('kubi', compact('count'),['count' => $count, 'exercise_name' => $exercise_name]);
     }
 
 }

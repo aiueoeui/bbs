@@ -1,3 +1,5 @@
+//更新:スクショ機能
+
 let detector;
 let poses;
 let video;
@@ -97,7 +99,7 @@ function switchByWidth() {
         console.log("スマホ横向き");
         PHONE = true;
     } else if (window.matchMedia('(min-width:768px)').matches) {
-        createCanvas(1280, 900);//PC処理
+        createCanvas(1280, 800);//PC処理
         console.log("PC");
         PC = true;
     }
@@ -483,6 +485,23 @@ function right_angle_2() {
     }
 }
 
+var uttr = new SpeechSynthesisUtterance();//小林行追加
+
+function cancel(){//小林行追加
+    speechSynthesis.cancel();
+    var uttr = new SpeechSynthesisUtterance();
+}
+
+function Rcountnumber(){//小林行追加
+    uttr.text = ("右あと"+Rightconditions_count+"回");
+    speechSynthesis.speak(uttr);
+}
+
+function Lcountnumber(){//小林行追加
+    uttr.text = ("左あと"+Leftconditions_count+"回");
+    speechSynthesis.speak(uttr);
+}
+
 function conditions() {
 
     if (poses[0].keypoints[13].score >= confidence_threshold || poses[0].keypoints[14].score >= confidence_threshold) {//   膝のスコアが一定以上の場合
@@ -499,63 +518,64 @@ function conditions() {
             RightWristAbovenose = false;
         }
 
-        if (LeftWristAbovenose == true) {//左膝角度チェック
-            if ((rightflexiontext_02 > 160) && (leftflexiontext_01 > 80 && leftflexiontext_01 < 100)) {
-                flag_1 = true;
-            } else {
-                flag_1 = false;
-            }
+        if (LeftWristAbovenose == true && RightWristAbovenose == false) {
+                //左膝角度check
+                if ((rightflexiontext_01 > 160) && (leftflexiontext_01 <= 110 && leftflexiontext_01 >= 80)) {
+                    flag_1 = true;
+                }
 
-            //右腰角度チェック
-            if ((leftflexiontext_02 >= 85 && leftflexiontext_02 <= 100)) {
+                if(flag_1 == true){
+                    if(leftflexiontext_01 >= 150){
+                        if (Leftconditions_count > 0) {
+                            Leftconditions_count -= 1;
+                            setTimeout(Rcountnumber, 1000)//小林行追加
+                            setTimeout(cancel, 2000);//小林行追加
+                            // canvas 要素を取得
+                            var canvas = document.getElementById('defaultCanvas0');
+
+                            // canvas 要素から画像データを取得
+                            var data = canvas.toDataURL();
+
+                            // a 要素を取得
+                            var downloadLink = document.getElementById('downloadLink');
+
+                            // a 要素の href 属性に画像データを設定
+                            downloadLink.href = data;
+
+                            // a 要素をクリックする (画像のダウンロードを開始する)
+                            downloadLink.click();
+                        }
+                        flag_1 = false;
+                    }
+                }
+        }
+
+        if (RightWristAbovenose == true && LeftWristAbovenose == false) {
+            //右膝角度check
+            if ((leftflexiontext_01 > 160) && (rightflexiontext_01 <= 110 && rightflexiontext_01 >= 80)) {
                 flag_2 = true;
-            } else {
-                flag_2 = false;
             }
 
-
-            if (flag_1 == true && flag_2 == true) {
-                Lefttimerflag = true;
-            } else {
-                Lefttimerflag = false;
+            if (flag_2 == true) {
+                if (rightflexiontext_01 >= 150) {
+                    if (Rightconditions_count > 0) {
+                        Rightconditions_count -= 1;
+                        setTimeout(Lcountnumber, 1000)//小林行追加
+                        setTimeout(cancel, 2000);//小林行追加
+                    }
+                    flag_2 = false;
+                }
             }
         }
 
-        if (RightWristAbovenose == true) {//右膝角度チェック
-            if ((leftflexiontext_02 > 160) && (rightflexiontext_01 > 80 && rightflexiontext_01 < 100)) {
-                flag_1 = true;
-            } else {
-                flag_1 = false;
-            }
-
-            //右腰角度チェック
-            if ((rightflexiontext_02 >= 85 && rightflexiontext_02 <= 100)) {
-                flag_2 = true;
-            } else {
-                flag_2 = false;
-            }
-
-
-            if (flag_1 == true && flag_2 == true) {
-                Righttimerflag = true;
-            } else {
-                Righttimerflag = false;
-            }
-        }
     }
+    setTimeout(function () {
+        if (Leftconditions_count == 0 && Rightconditions_count == 0) {
+            // a 要素を取得
+            var exercise_data = document.getElementById('exercise_data');
+
+            // a 要素をクリックする (ページ遷移)
+            exercise_data.click();
+        }
+    }, 3000);
 }
-//近似値の場合にカウント
-setInterval(function () {
-
-    if (Lefttimerflag == true) {
-        if (Leftconditions_count > 0) {
-            Leftconditions_count -= 1;
-        }
-    }
-
-    if (Righttimerflag == true) {
-        if (Rightconditions_count > 0) {
-            Rightconditions_count -= 1;
-        }
-    }
-}, 1000);

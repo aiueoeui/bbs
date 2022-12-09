@@ -14,12 +14,12 @@
         <div class="p-6 bg-white border-b border-gray-200">
 
             <div class="flex justify-center mb-4">
-                        <img class="rounded-lg" src="{{ asset('images/udetate_logo.PNG') }}" alt="スクワット"height="120px" width="220px">
+                        <img class="rounded-lg" src="{{ asset('images/udetate_logo.png') }}" alt="スクワット"height="120px" width="220px">
             </div>
 
             <div class="flex ml-4 pt-4 pb-4  border-t border-b justify-center">
             <img class="mr-2" src="{{ asset('images/push_up1.PNG') }}" alt="腕立て伏せ"height="120px" width="220px">
-            <img src="{{ asset('images/push_up2.PNG') }}" alt="腕立て伏せ"height="120px" width="220px">
+            <img src="{{ asset('images/push_up2.png') }}" alt="腕立て伏せ"height="120px" width="220px">
 
             <div class="flex flex-col">
 

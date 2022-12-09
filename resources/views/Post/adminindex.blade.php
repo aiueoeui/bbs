@@ -35,6 +35,7 @@
                 <th scope="col" class="py-3 px-6">名前</th>
                 <th scope="col" class="py-3 px-6">運動名</th>
                 <th scope="col" class="py-3 px-6">回数</th>
+                <th scope="col" class="py-3 px-6">注意が出た回数</th>
                 <th scope="col" class="py-3 px-6">実施日</th>
                 <th scope="col" class="py-3 px-6"></th>
             </tr>
@@ -53,6 +54,7 @@
                 </th>
                 <td class="py-4 px-6">{{$post->exercise_name}}</td>
                 <td class="py-4 px-6">{{$post->count}}</td>
+                <td class="py-4 px-6">{{$post->badcount}}</td> 
                 <td class="py-4 px-6">{{$post->created_at}}</td>
                 <td><a href="{{route('post.show',$post)}}">
                     <button class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('詳細') }}</button>

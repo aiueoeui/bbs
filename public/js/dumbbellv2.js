@@ -95,7 +95,7 @@ function switchByWidth() {
         console.log("スマホ横向き");
         PHONE = true;
     } else if (window.matchMedia('(min-width:768px)').matches) {
-        createCanvas(1280, 900);//PC処理
+        createCanvas(1280, 800);//PC処理
         console.log("PC");
         PC = true;
     }
@@ -591,4 +591,14 @@ function conditions() {
                 }
             }
         }
+    //conditions関数のカウントマイナスのif文に追加するやつ
+    setTimeout(function () {
+        if (Leftconditions_count == 0 && Rightconditions_count == 0) {
+            // a 要素を取得
+            var exercise_data = document.getElementById('exercise_data');
+
+            // a 要素をクリックする (画像のダウンロードを開始する)
+            exercise_data.click();
+        }
+    }, 3000);
     }

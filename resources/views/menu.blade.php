@@ -32,11 +32,13 @@
 
             <a class="pr-1" href="{{ route('exercise.squat_menu')}}"><img src="images/sukuwatto.PNG" alt="スクワット"height="120px" width="220px"></a>
 
-            <a class="pr-1" href="{{ route('exercise.step_up_menu')}}"><img src="images/3-6ashihumi.PNG" alt="その場足踏み" height="120px" width="220px"></a>
+            <a class="pr-1" href="{{ route('exercise.step_up_menu')}}"><img src="images/1-2ashihumi.PNG" alt="その場足踏み" height="120px" width="220px"></a>
 
             <a class="pr-1" href="{{ route('exercise.dumbbell_menu')}}"><img src="images/3-6chikara.PNG" alt="ちからこぶ運動" height="120px" width="220px"></a>
 
             <a class="pr-1" href="{{ route('exercise.push_up_menu')}}"><img src="images/1-2udetate.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
+
+            <a class="pr-1" href="{{ route('exercise.sit_up_menu')}}"><img src="images/sit_up.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
 
         </div>
         </div>
@@ -64,7 +66,7 @@
 
             <a class="pr-1" href="{{ route('exercise.push_up_menu')}}"><img src="images/1-2udetate.PNG" alt="うでたてふせ" height="120px" width="220px"></a>
 
-
+           <a class="pr-1" href="{{ route('exercise.sit_up_menu')}}"><img src="images/sit_up.PNG" alt="上体起こし" height="120px" width="220px"></a>
         </div>
         </div>
     </div>

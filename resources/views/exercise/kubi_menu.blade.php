@@ -2,7 +2,7 @@
   <x-slot name="header">
     <div class="flex items-center justify-between">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('かた足あげ') }}
+        {{ __('くび') }}
       </h2>
     </div>
   </x-slot>
@@ -18,8 +18,8 @@
             </div>
 
             <div class="flex ml-4 pt-4 pb-4  border-t border-b justify-center">
-            <img class="mr-2" src="{{ asset('images/kubi1.PNG') }}" alt="腕立て伏せ"height="120px" width="220px">
-            <img src="{{ asset('images/kubi2.PNG') }}" alt="腕立て伏せ"height="120px" width="220px">
+            <img class="mr-2" src="{{ asset('images/kubi1.PNG') }}" alt="くび"height="120px" width="220px">
+            <img src="{{ asset('images/kubi2.PNG') }}" alt="くび"height="120px" width="220px">
 
             <div class="flex flex-col">
 
@@ -42,7 +42,7 @@
 
             <div class="text-right ml-auto mr-4">
 
-<form method="POST" action="{{ url('/squat') }}">
+<form method="POST" action="{{ url('/kubi') }}">
 @csrf
 <div class="flex">
     <div class="flex items-center mr-4">
@@ -57,7 +57,7 @@
         <input checked id="inline-checked-radio" type="radio" value="15" name="count" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
         <label for="inline-checked-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">15かい</label>
     </div>
-    <input type="hidden" name="exercise_name" value="その場足踏み" >
+    <input type="hidden" name="exercise_name" value="くび" >
 
     <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('はじめる') }}</button>
 

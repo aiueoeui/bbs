@@ -8,7 +8,63 @@
     </div>
   </x-slot>
 
-  <div class="py-12">
+    <div class="py-12">
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="p-6 bg-white border-b border-gray-200">
+
+          <?php
+          $grade = [''];
+          ?>
+
+
+          <div class="flex">
+            <div class="flex flex-col">
+            <label for="countries" class="my-auto mr-2 text-sm font-medium text-gray-900 dark:text-white">学年</label>
+            <select id="countries" name="grade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected value="">すべて</option>
+            <option value="1">1年</option>
+            <option value="2">2年</option>
+            <option value="3">3年</option>
+            <option value="4">4年</option>
+            </select>
+            </div>
+
+            <div class="flex flex-col ml-4">
+            <label for="countries" class="my-auto text-sm font-medium text-gray-900 dark:text-white">クラス</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected>Choose a country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+            </select>
+            </div>
+
+            <div class="flex flex-col ml-4">
+            <label for="countries" class="my-auto text-sm font-medium text-gray-900 dark:text-white">出席番号</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected>Choose a country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+            </select>
+            </div>
+
+                <div class="flex flex-col ml-4 mt-auto mb-1">
+                  <div class="text-right ml-auto mr-4 mt-4">
+                    <button class="bg-blue-500 rounded font-medium px-4 py-2 text-white">
+                    <input type="submit" value="検索">
+                    </button>
+                </div>
+          </div>
+
+        </div>
+       </div>
+      </div>
+    </div>
+
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200">
